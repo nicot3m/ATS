@@ -1,0 +1,64 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}"/>
+
+<div>
+    <h2>Présentation</h2>
+    <p class="intro">Outils calculs</p>
+</div>
+<div>
+    <h2>blablabla</h2>
+</div>
+<div>
+	<form enctype="multipart/form-data" method="POST">
+        {% csrf_token %}
+        <div class="name_lign_form">Name</div>
+        <div class="title_lign_form">Folder</div>
+        <div class="title_lign_form">{{form.as_p}}</div>
+        <button type="submit" class="save btn tdn-default">Save</button>
+    </form>
+</div>
+<div>
+    <h2>Toutes les répertoires</h2>
+    <ul>
+    {% for folder in folder_all %}
+        <li>
+            <a>
+                <p>{{ folder.path }}</p>
+            </a>
+        </li>
+    {% endfor %}
+    </ul>
+</div>
+<div>
+	folder path {{ folder_first.path }}
+	folder name {{ folder_first.name }}
+</div>
+<div>
+	<form method="post">
+		{% csrf_token %}
+		<button type="submit" name="run_script">Run script</button>
+	</form>
+</div>
+
+<div>
+	<p>toto</p>
+	<form action="/call_simple_function">
+		<button id="stat-btn" class="btn">Do it</button>
+	</form>
+</div>
+<div>
+	<h2>Toutes les fichiers</h2>
+	<ul>
+	{% for file in list_file %}
+		<li>
+			<a>
+				<p>{{ file }}</p>
+			</a>
+		</li>
+	{% endfor %}
+	</ul>
+</div>
+
+{% endblock %}

@@ -1,0 +1,11 @@
+.intro{
+    max-width: 80%;
+    text-align: center;
+    margin: auto;
+}
+
+.conclusion{
+    font-style: italic;
+    font-weight: bold;
+    color: black
+}
